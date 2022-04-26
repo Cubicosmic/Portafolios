@@ -1,0 +1,67 @@
+@import "../mixins.scss";
+
+.menu.piano {
+    button.piano {
+        @include t(60px,60px);
+        @include xy-tl(0,50%);
+        transform: translateX(-30px);
+        background: none;
+        border: none;
+        div {
+            @include t(100%,3px);
+            transform: translateY(-7px);
+            background: $piano1;
+            &::after {
+                @include pseudo(100%,3px);
+                transform: translateY(14px);
+                background: $piano1;
+            }
+        }
+    }
+}
+
+nav.piano {
+    @include t(100%,100vh);
+    @include xy-tl(60px,0);
+    z-index: 80;
+    background: $piano1;
+    @include pianofont;
+    &.active {
+        transform: translateY(0%);
+    }
+    &.no-active {
+        transform: translateY(-100%);
+    }
+    a {
+        display: block;
+        padding-top: 20px;
+        margin-top: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 30px;
+        @include t(100%,60px);
+        color: $piano2;
+    }
+}
+
+//toxic
+
+.menu.toxic {
+    @include t(70px,70px);
+    position: fixed;
+    top: 35px;
+    left: 35px;
+    background: #fff;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #777;
+    div {
+        @include t(100%,3px);
+        transform: translateY(-7px);
+        background: #333;
+        &::after {
+            @include pseudo(100%,3px);
+            transform: translateY(14px);
+            background: #333;
+        }
+    }
+}

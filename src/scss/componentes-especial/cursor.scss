@@ -1,0 +1,43 @@
+@import "../mixins.scss";
+
+//piano
+.cursor.piano {
+    @include t(20px,20px);
+    position: fixed;
+    z-index: 99;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: none;
+    transform: translateX(-5px) translateY(-5px);
+}
+@media (orientation:portrait) {
+    .cursor.piano {
+        display: none;
+    }
+}
+
+.cursor.active {
+    transform: scale(2) translateX(-5px) translateY(-5px);
+    animation-name: munu;
+    animation-duration: 0.2s;
+}
+
+.cursor.no-active {
+    animation-name: mini;
+    animation-duration: 0.2s;
+}
+
+main.piano, header.piano, #reloj.piano, button.piano, nav.piano, main.piano * {
+    cursor: none;
+}
+
+@keyframes mini {
+    0%{transform: scale(2) translateX(-5px) translateY(-5px);}
+    100%{transform: scale(1) translateX(-5px) translateY(-5px);}
+} 
+@keyframes munu {
+    0%{transform: scale(1) translateX(-5px) translateY(-5px);}
+    100%{transform: scale(2) translateX(-5px) translateY(-5px);}
+} 

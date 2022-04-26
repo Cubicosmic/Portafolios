@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+}
+
+body {
+    width: 100%;
+}
+
+@mixin centrar($d) {
+    display: flex;
+    @if $d==v {
+        justify-content: center;
+    } @else if $d==h {
+        align-items: center;
+    } @else {
+        justify-content: center;
+        align-items: center;
+    }
+}
+@mixin t($w,$h){
+    width: $w;
+    height: $h;
+}
+@mixin xy-tl($x,$y) {
+    position: absolute;
+    top: $x;
+    left: $y;
+}
+
+@mixin xy-bl($x,$y) {
+    position: fixed;
+    bottom: $x;
+    left: $y;
+}
+
+@mixin pseudo($w,$h) {
+    content: '';
+    @include t($w,$h);
+    @include xy-tl(0,0);
+}
+
+//piano
+
+$piano1: #000;
+$piano2: #fff;
+$piano3: #aaa;
+@mixin borde-piano-a {
+    border: 3px solid $piano1;
+    border-radius: 50%;
+}
+@mixin pianofont {
+    font-family: 'Raleway', sans-serif;
+}
+
+//toxic
+$toxic1: #123;
+$toxic2: #0f0;
+@mixin toxic {
+    background: linear-gradient(#222,$toxic2);
+}
+@mixin toxicfont {
+    font-family: 'Nunito', sans-serif;
+}
+
+//neomorfismo
+
+$neomorfismo1: #ddd;
+$neomorfismo2: #8bc;
+
+@mixin neomorfismo-bs {
+    box-shadow: -3px -3px 7px rgba(255,255,255,0.6),
+        3px 3px 7px rgba(0,0,0,0.3);
+}
+@mixin neomorfismo-bsi {
+    box-shadow:inset -3px -3px 7px rgba(255,255,255,0.6),
+        inset 3px 3px 7px rgba(0,0,0,0.3);
+}

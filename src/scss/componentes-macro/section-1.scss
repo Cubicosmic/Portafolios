@@ -1,0 +1,120 @@
+@import "../mixins.scss";
+
+//piano
+
+section#seccion-1.piano {
+    @include t(100%,100vh);
+    div.principal {
+        @include t(100%,100%);
+        position: relative;
+        @include centrar(h);
+        h2 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 10px solid $piano1;
+        }
+        ul {
+            bottom: 0;
+            display: flex;
+            margin-top: 30px;
+            li {
+                list-style: none;
+                a {
+                    font-size: 60px;
+                    color: $piano1;
+                }
+            }
+        }
+        p {
+            bottom: 0;
+            margin-top: 30px;
+            font-size: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+@media (orientation:landscape) {
+    section#seccion-1.piano {
+        padding: 90px 10% 30px 10%;
+        div.principal {
+            h2 {
+                font-size: 3em;
+                padding: 0 10% 10vh 10%;
+            }
+            ul {
+                position: absolute;
+                width: 35%;
+                justify-content: space-between;
+            }
+            p {
+                position: absolute;
+                right: 0;
+                width: 40%;
+            }
+        }
+    }
+}
+@media (orientation:portrait) {
+    section#seccion-1.piano {
+        padding: 90px 5% 30px 5%;
+        div.principal {
+            display: block;
+            h2 {
+                font-size: 2em;
+                padding: 0 0 10vh 0;
+            }
+            ul {
+                width: 100%;
+                justify-content: space-around;
+            }
+            p {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+
+
+//toxic
+
+section#seccion-1.toxic {
+    @include t(100%,100vh);
+    div.principal {
+        @include t(100%,100%);
+        position: relative;
+        @include centrar(vh);
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-family: 'Russo One', sans-serif;
+            color: $toxic1;
+            text-shadow: 0 0 2px #fff,
+                0 0 5px $toxic1;
+        }
+    }
+}
+@media (orientation:landscape) {
+    section#seccion-1.toxic {
+        padding: 90px 10% 15px 10%;
+        div.principal {
+            h2 {
+                font-size: 3em;
+                padding: 0 10% 10vh 10%;
+            }
+        }
+    }
+}
+@media (orientation:portrait) {
+    section#seccion-1.toxic {
+        padding: 90px 5% 15px 5%;
+        div.principal {
+            h2 {
+                font-size: 2em;
+                padding: 0 0 10vh 0;
+            }
+        }
+    }
+}

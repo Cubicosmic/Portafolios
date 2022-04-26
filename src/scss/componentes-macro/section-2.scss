@@ -1,0 +1,69 @@
+@import "../mixins.scss";
+
+//piano
+
+section#seccion-2.piano {
+    padding-bottom: 60px;
+    padding-top: 60px;
+    display: block;
+    div.cont {
+        width: 100%;
+        position: relative;
+        div.sub-cont {
+            @include centrar(vh);
+            h3 {
+                border-bottom: 5px solid $piano1;
+                margin-bottom: 30px;
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+@media (orientation:landscape) {
+    section#seccion-2.piano {
+        width: 80%;
+        margin-left: 10%;
+        div.cont {
+            display: flex;
+            img {
+                width: 50%;
+            }
+            img.sc1 {
+                margin-left: 50%;
+            }
+            div.sub-cont {
+                @include t(50%,100%);
+                position: absolute;
+                top: 0;
+            }
+            div.sub-cont.sc0,
+            div.sub-cont.sc2 {
+                right: 0;
+                padding: 0 0 0 60px;
+                text-align: right;
+            }
+            div.sub-cont.sc1{
+                left: 0;
+                padding: 0 60px 0 0;
+                text-align: left;
+            }
+        }
+    }
+}
+@media (orientation:portrait) {
+    section#seccion-2.piano {
+        width: 90%;
+        margin-left: 5%;
+        div.cont {
+            img {
+                width: 100%;
+                margin-top: 60px;
+                margin-bottom: 60px;
+            }
+            div.sub-cont {
+                width: 100%;
+            }
+        }
+    }
+}

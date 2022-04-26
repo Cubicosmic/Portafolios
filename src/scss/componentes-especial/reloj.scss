@@ -1,0 +1,146 @@
+@import "../mixins.scss";
+
+$cuenta-desde: 10;
+
+#reloj.piano {
+    @include t(60px,60px);
+    @include xy-bl(30px,50%);
+    z-index: 50;
+    @include borde-piano-a;
+    transform: translateX(-50%);
+    p, div {
+        display: none;
+    }
+    @for $i from 1 through $cuenta-desde {
+        span#segundero-#{$i} {
+            @include xy-tl(50%,50%);
+            transform: rotate(-36deg*$i+180);
+            &:after {
+                content: '';
+                @include t(2px,20px);
+                @include xy-tl(0,0);
+                background: $piano1;
+                opacity: 1;
+                animation: borrar linear 10s infinite;
+            }
+        }
+    }
+}
+
+
+
+
+
+//toxic
+
+#reloj.toxic {
+    @include t(60px,60px);
+    position: fixed;
+    top: 60px;
+    background: #ff0;
+    border-radius: 50%;
+    left: 100%;
+    transform-style: preserve-3d;
+    animation: girar linear 60s infinite;
+    div {
+        @include t(100%,100%);
+        @include xy-tl(0,0);
+        color: white;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    @for $l from 1 through 4 {
+        div#l-#{$l} {
+            transform: rotateY(90deg*$l) translateZ(30px);
+            background: linear-gradient(#a30,#ff0);
+        }
+    }
+    div#l-5 {
+        transform: rotateX(90deg) translateZ(30px);
+        background: #a30;
+    }
+    div#l-6 {
+        transform: rotateX(-90deg) translateZ(40px);
+        background: #ff0;
+        filter: blur(20px);
+        box-shadow: 0 0 50px rgba(255,225,0,0.4),
+            0 0 60px rgba(255,225,0,0.6),
+            0 0 80px rgba(255,225,0,0.8);
+    }
+} 
+
+//neomorfismo
+
+#reloj.neomorfismo {
+    @include t(80px,80px);
+    @include xy-bl(25px,30px);
+    z-index: 50;
+    @include centrar(vh);
+    background: $neomorfismo1;
+    border-radius: 50%;
+    @include neomorfismo-bs;
+    div, span {
+        display: none;
+    }
+    p {
+        @include t(30px,30px);
+        font-size: 12px;
+        padding: 8px;
+        text-align: center;
+        border-radius: 50%;
+        @include neomorfismo-bs;
+        @include xy-tl(50px,100%);
+    }
+    div#l-6 {
+        display: block;
+        @include t(72px,72px);
+        border-radius: 50%;
+        @include neomorfismo-bsi;
+        overflow: hidden;
+        span {
+            display: block;
+            @include t(200%,200%);
+            border-radius: 40%;
+            background: $neomorfismo2;
+            animation: linear agua 1s*$cuenta-desde infinite;
+        }
+    }
+}
+
+//geometric
+
+#reloj.geometric {
+    background: red;
+}
+
+@media (max-width:1000px){
+    #reloj.geometric {
+        @include t(100px,100px);
+        position: absolute;
+        top: 0;
+    }
+}
+@media (min-width:1000px){
+    #reloj.geometric {
+        @include t(150px,150px);
+        @include xy-bl(0,0);
+    }
+}
+
+@keyframes borrar {
+    0%, 9%{opacity: 1;}
+    10%,100%{opacity: 0;}
+}
+
+@keyframes girar {
+    0%{transform: translateX(-150px) translateZ(120px) rotateX(-15deg) rotateY(0deg);}
+    100%{transform: translateX(-150px) translateZ(120px) rotateX(-15deg) rotateY(3600deg);}
+}
+
+@keyframes agua {
+    0%{transform: translateY(55%) translateX(-25%) rotate(0deg);}
+    100%{transform: translateY(0%) translateX(-25%) rotate(990deg);}
+}

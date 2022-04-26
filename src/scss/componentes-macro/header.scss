@@ -1,0 +1,81 @@
+@import "../mixins.scss";
+
+header {
+    position: fixed;
+    z-index: 80;
+}
+
+//piano
+header.piano {
+    @include t(100%,60px);
+    background: $piano2;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid $piano3;
+    @include pianofont;
+    @include centrar(h);
+    h1 {
+        position: absolute;
+        font-size: 25px;
+        width: 80%;
+        left: 10%;
+        &::after {
+            content: 'Desarrollador web';
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+@media (orientation:portrait) {
+    header.piano {
+        h1 {
+            font-size: 20px;
+            left: 5%;
+            width: 90%;
+            &::after {
+                content: 'Front-end';
+            }
+        }
+    }
+}
+
+//toxic
+
+header.toxic {
+    background: none;
+}
+
+//neomorfismo
+
+header.neomorfismo {
+    @include t(85%,55px);
+    top: 15px;
+    margin-left: 30px;
+    background: $neomorfismo1;
+    border-top: 5px solid #eee;
+    border-left: 10px solid #eee;
+    border-right: 10px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px #888,
+    6px 6px 3px #999,
+    9px 9px 3px #aaa,
+    12px 12px 3px #bbb,
+    inset 2px 2px 2px #eee;
+    @include centrar(h);
+    padding-left: 30px;
+    h1 {
+        font-family: 'Stint Ultra Expanded', cursive;
+        font-size: 1em;
+        color: #666;
+        &::after {
+            content: ' desarrollador web.';
+        }
+    }
+}
+
+@keyframes bateria {
+    0%{width: 5%;}
+    50%{width: 100%;}
+    100%{width: 5%;}
+}

@@ -1,0 +1,64 @@
+@import "componentes-especial/reloj.scss";
+@import "componentes-especial/cursor.scss";
+@import "componentes-especial/menu.scss";
+@import "componentes-macro/header.scss";
+@import "componentes-macro/section-1.scss";
+@import "componentes-macro/section-2.scss";
+@import "mixins";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&family=Rubik:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include t(100%,100vh);
+    overflow: hidden;
+}
+
+#reloj,header,.menu,nav,main {
+    transition: 1s;
+}
+
+#root {
+    @include t(100%,100vh);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+//piano
+
+main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+main.piano {
+    @include t(100%,100vh);
+    background: #fff;
+    @include pianofont;
+}
+
+//toxic
+
+main.toxic {
+    @include t(100%,100vh);
+    background: $toxic1;
+}
+
+//neomorfismo 
+
+main.neomorfismo {
+    @include t(100%,100vh);
+    background: $neomorfismo1;
+}
